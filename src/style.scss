@@ -50,6 +50,13 @@ body {
         font-size:1em;
         text-align:right;
     }
+    .fade {
+        animation: fade-in-keyframes 1s;
+    }
+    @keyframes fade-in-keyframes {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
     #buttonbar {
         width:550px;
         margin:auto;
