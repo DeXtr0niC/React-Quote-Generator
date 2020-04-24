@@ -1,3 +1,7 @@
+# React-Quote-Generator
+Simple Random Quote Machine build with React. Part of freeCodeCamps Front End Libraries Certificate
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
