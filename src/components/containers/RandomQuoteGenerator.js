@@ -24,18 +24,24 @@ const StyledRandomQuoteGenerator = styled.div`
     max-height: 10000px;
   }
 `
+/* TODO Fetch quotes from API.
+  When first visiting, fetch Quotes form API and save in localStorage. 'New Quote' pulls random Quote from localStorage. */
 
-const RandomQuoteGenerator = (props) => {
+  // TODO Add Fade Effect
+  // TODO Make quotes starable. Show fav quotes in side.
+  // TODO Add own quotes
+  // TODO fetch just from Own/Fav quotes.
+
+const RandomQuoteGenerator = () => {
   const [currentQuote, setCurrentQuote] = useState('1010001001 1101101 11010 101 0.')
   const [currentAuthor, setCurrenAuthor] = useState('Default Author')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const newQuoteHandler = null // TODO Add Click Handler to Buttons. setIsLoading true. pull from quotes. set author set quote set isLoading false
 
   return (
     <StyledRandomQuoteGenerator>
-      <QuoteBox quote={currentQuote} author={currentAuthor} />
-      {/* <Buttonbar>
-        <TwitterButton />
-        <NewQuoteButton />
-      </Buttonbar> */}
+      <QuoteBox quote={currentQuote} author={currentAuthor} newQuoteHandler={newQuoteHandler} isLoading={isLoading} />
     </StyledRandomQuoteGenerator>
   )
 }

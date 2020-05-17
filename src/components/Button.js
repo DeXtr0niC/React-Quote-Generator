@@ -36,7 +36,7 @@ export const SocialButton = styled(Button)`
   text-decoration: none;
   }
 `
-export const TwitterButton = ({ currentQuote }) => {
+export const TwitterButton = ({ currentQuote, currentAuthor }) => {
   const uri = 'http://google.com'// 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + props.currentQuote[0] + '" ' + props.currentQuote[1])
 
   return (

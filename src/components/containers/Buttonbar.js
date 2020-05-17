@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TwitterButton, NewQuoteButton } from '../Button'
 
 const StyledButtonBar = styled.div`
   width: 100%;
@@ -15,9 +14,7 @@ const StyledButtonBar = styled.div`
 const Buttonbar = (props) => {
   return (
     <StyledButtonBar>
-      <TwitterButton as='div' />
-      <NewQuoteButton />
-      {/* <div>{props.children}</div> */}
+      <div>{props.children}</div>
     </StyledButtonBar>
   )
 }
