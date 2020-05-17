@@ -17,9 +17,9 @@ const QuoteIcon = styled.i`
 
 const Quote = ({ quote }) => (
   <StyledQuote>
-    <QuoteIcon className='fas fa-quote-left'/>
-      <span id='text'>{quote}</span>
-    <QuoteIcon className='fas fa-quote-right'/>
+    <QuoteIcon className='fas fa-quote-left' />
+    <span id='text'>{quote}</span>
+    <QuoteIcon className='fas fa-quote-right' />
   </StyledQuote>
 )
 

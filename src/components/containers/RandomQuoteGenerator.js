@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import QuoteBox from './QuoteBox'
-import Buttonbar from './Buttonbar'
-import {
-  NewQuoteButton,
-  TwitterButton,
-} from '../Button'
 
 const StyledRandomQuoteGenerator = styled.div`
   border-radius: 3px;
@@ -20,7 +15,6 @@ const StyledRandomQuoteGenerator = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  //flex-direction: column;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #BDBB99;
@@ -36,14 +30,13 @@ const RandomQuoteGenerator = (props) => {
   const [currentAuthor, setCurrenAuthor] = useState('Default Author')
 
   return (
-      <StyledRandomQuoteGenerator>
-        <QuoteBox quote={currentQuote} author={currentAuthor} />
-        <Buttonbar>
-          <TwitterButton />
-          <NewQuoteButton />
-        </Buttonbar>
-      </StyledRandomQuoteGenerator>
-
+    <StyledRandomQuoteGenerator>
+      <QuoteBox quote={currentQuote} author={currentAuthor} />
+      {/* <Buttonbar>
+        <TwitterButton />
+        <NewQuoteButton />
+      </Buttonbar> */}
+    </StyledRandomQuoteGenerator>
   )
 }
 

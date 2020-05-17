@@ -3,23 +3,21 @@ import styled from 'styled-components'
 
 import Quote from '../Quote'
 import Author from '../Author'
-
-
-
+import Buttonbar from './Buttonbar'
 const StyledQuoteBox = styled.div`
-width: 100%;
- border-radius:3px;
-    position:relative;
-    margin:8% auto auto auto;
-    padding:40px 50px;
-    background-color:#fff;
-flex: 2 1 100%;
-display: flex;
-flex-direction: column;
+  width: 100%;
+  border-radius:3px;
+  position:relative;
+  margin: 8% auto auto auto;
+  padding:40px 50px;
+  background-color:#fff;
+  flex: 2 1 100%;
+  display: flex;
+  flex-direction: column;
 `
 
 const QuoteBox = ({ isLoading, quote, author, newQuoteHandler }) => {
-  if(isLoading) {
+  if (isLoading) {
     return (
       <StyledQuoteBox>
         Loading...
@@ -29,8 +27,12 @@ const QuoteBox = ({ isLoading, quote, author, newQuoteHandler }) => {
 
   return (
     <StyledQuoteBox>
-      <Quote quote={quote}/>
-      <Author author={author}/>
+      <Quote quote={quote} />
+      <Author author={author} />
+      <Buttonbar />
+      {/* <TwitterButton />
+      <NewQuoteButton />
+      </Buttonbar> */}
     </StyledQuoteBox>
   )
 }
