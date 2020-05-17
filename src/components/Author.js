@@ -11,10 +11,9 @@ const StyledAuthor = styled.div`
 `
 
 const Author = ({ author }) => {
-
   return (
-    <StyledAuthor>
-      <span id='author'>- {author}</span>
+    <StyledAuthor>-
+      <span id='author'> {author}</span>
     </StyledAuthor>
   )
 }

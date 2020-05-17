@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-
 const GlobalStyle = createGlobalStyle`
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 
@@ -12,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  font-family: 'Railway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   box-sizing: border-box;
   display: flex;
