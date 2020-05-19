@@ -10,10 +10,10 @@ const StyledButtonBar = styled.div`
   display: block;
 `
 
-const Buttonbar = (props) => {
+const Buttonbar = ({ children }) => {
   return (
     <StyledButtonBar>
-      <div>{props.children}</div>
+      <div>{children}</div>
     </StyledButtonBar>
   )
 }

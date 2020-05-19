@@ -44,7 +44,10 @@ export const TwitterButton = ({ currentQuote }) => {
   return (
     <SocialButton
       as='div'
-      style={{ color: '#fff', textDecoration: 'none' }}
+      style={{
+        color: '#fff',
+        textDecoration: 'none',
+      }}
       href={uri}
     >
       <a target='_blank' rel='noopener noreferrer' href={uri}>

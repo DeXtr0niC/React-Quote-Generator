@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+
 import QuoteBox from './QuoteBox'
-//import {backgroundColors} from '../styles/backgroundColors'
+import { backgroundColors } from '../styles/backgroundColors'
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: ${(props) => props.colors.primary || '#bdbb99'};
+  color: #333;
+`
 
 const StyledRandomQuoteGenerator = styled.div`
   border-radius: 3px;
@@ -12,13 +22,12 @@ const StyledRandomQuoteGenerator = styled.div`
   min-height: 5em;
   max-height: 863px;
   margin: 0 auto;
-  padding: 40px 50px;
+  padding: 40px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: #bdbb99;
 
   @media screen and (max-width: 1400px) {
     display: block;
@@ -32,7 +41,11 @@ const StyledRandomQuoteGenerator = styled.div`
 // TODO fetch just from Own/Fav quotes.
 
 const RandomQuoteGenerator = () => {
-  // TODO Implement Color Change
+  const colors = backgroundColors
+  const [currentColors, setCurrentColors] = useState({
+    primary: '',
+    secondary: '',
+  })
 
   const [isLoading, setIsLoading] = useState(false)
   const [currentIdx, setCurrentIdx] = useState(0)
@@ -49,23 +62,29 @@ const RandomQuoteGenerator = () => {
       const quotes = await response.json()
       setQuoteList(quotes)
 
-      let randomNumber = Math.floor(Math.random() * quotes.length - 1)
-      setCurrentIdx(randomNumber)
+      setCurrentIdx(getRandomIndex(quotes))
+      setCurrentColors({
+        primary: colors[getRandomIndex(colors)],
+        secondary: colors[getRandomIndex(colors)],
+      })
       setIsLoading(false)
     }
     fetchQuotes()
-  }, [])
+  }, [colors])
 
-  const getRandomIndex = () => {
-    return Math.floor(Math.random() * quoteList.length - 1)
+  const getRandomIndex = (array) => {
+    return Math.floor(Math.random() * array.length - 1)
   }
 
   // Click-handler for new quote button
   const newQuoteHandler = (event) => {
     event.preventDefault()
     setIsLoading(true)
-    let randomIndex = getRandomIndex()
-    setCurrentIdx(randomIndex)
+    setCurrentIdx(getRandomIndex(quoteList))
+    setCurrentColors({
+      primary: colors[getRandomIndex(colors)],
+      secondary: colors[getRandomIndex(colors)],
+    })
     setIsLoading(false)
   }
 
@@ -74,15 +93,15 @@ const RandomQuoteGenerator = () => {
   }, [currentIdx, quoteList])
 
   return (
-    <StyledRandomQuoteGenerator>
-      {
+    <Wrapper colors={currentColors}>
+      <StyledRandomQuoteGenerator>
         <QuoteBox
           currentQuote={currentQuote}
           newQuoteHandler={newQuoteHandler}
           isLoading={isLoading}
         />
-      }
-    </StyledRandomQuoteGenerator>
+      </StyledRandomQuoteGenerator>
+    </Wrapper>
   )
 }
 

@@ -14,12 +14,8 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #BDBB99;
-  color: #333;
+  
+
   }
 `
 
