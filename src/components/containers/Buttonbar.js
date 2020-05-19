@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const StyledButtonBar = styled.div`
   width: 100%;
   margin: auto;
-  //height: 30%;
   max-width: 1800px;
   padding: 0px;
   flex: 1 1 30%;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import QuoteBox from './QuoteBox'
+//import {backgroundColors} from '../styles/backgroundColors'
 
 const StyledRandomQuoteGenerator = styled.div`
   border-radius: 3px;
@@ -17,31 +18,68 @@ const StyledRandomQuoteGenerator = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: #BDBB99;
-  
+  background-color: #bdbb99;
+
   @media screen and (max-width: 1400px) {
     display: block;
     max-height: 10000px;
   }
 `
-/* TODO Fetch quotes from API.
-  When first visiting, fetch Quotes form API and save in localStorage. 'New Quote' pulls random Quote from localStorage. */
 
-  // TODO Add Fade Effect
-  // TODO Make quotes starable. Show fav quotes in side.
-  // TODO Add own quotes
-  // TODO fetch just from Own/Fav quotes.
+// TODO Add Fade Effect
+// TODO Make quotes starable. Show fav quotes in side.
+// TODO Add own quotes
+// TODO fetch just from Own/Fav quotes.
 
 const RandomQuoteGenerator = () => {
-  const [currentQuote, setCurrentQuote] = useState('1010001001 1101101 11010 101 0.')
-  const [currentAuthor, setCurrenAuthor] = useState('Default Author')
-  const [isLoading, setIsLoading] = useState(false)
+  // TODO Implement Color Change
 
-  const newQuoteHandler = null // TODO Add Click Handler to Buttons. setIsLoading true. pull from quotes. set author set quote set isLoading false
+  const [isLoading, setIsLoading] = useState(false)
+  const [currentIdx, setCurrentIdx] = useState(0)
+  const [quoteList, setQuoteList] = useState([])
+  const [currentQuote, setCurrentQuote] = useState({ quote: '', author: '' })
+
+  // Fetch quotes on first load
+  useEffect(() => {
+    async function fetchQuotes() {
+      setIsLoading(true)
+      const response = await fetch(
+        'https://programming-quotes-api.herokuapp.com/quotes/'
+      )
+      const quotes = await response.json()
+      setQuoteList(quotes)
+
+      let randomNumber = Math.floor(Math.random() * quotes.length - 1)
+      setCurrentIdx(randomNumber)
+      setCurrentQuote(quotes[randomNumber])
+      setIsLoading(false)
+    }
+    fetchQuotes()
+  }, [])
+
+  const getRandomIndex = () => {
+    return Math.floor(Math.random() * quoteList.length - 1)
+  }
+
+  // Click-handler for new quote button
+  const newQuoteHandler = (event) => {
+    event.preventDefault()
+    setIsLoading(true)
+    let randomIndex = getRandomIndex()
+    setCurrentIdx(randomIndex)
+    setCurrentQuote(quoteList[randomIndex])
+    setIsLoading(false)
+  }
 
   return (
     <StyledRandomQuoteGenerator>
-      <QuoteBox quote={currentQuote} author={currentAuthor} newQuoteHandler={newQuoteHandler} isLoading={isLoading} />
+      {
+        <QuoteBox
+          currentQuote={currentQuote}
+          newQuoteHandler={newQuoteHandler}
+          isLoading={isLoading}
+        />
+      }
     </StyledRandomQuoteGenerator>
   )
 }

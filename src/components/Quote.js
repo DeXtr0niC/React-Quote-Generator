@@ -11,7 +11,7 @@ const StyledQuote = styled.div`
 `
 
 const QuoteIcon = styled.i`
-  font-size:1.0em;
+  font-size: 1em;
   margin: 0 0.4em 0 0.4em;
 `
 

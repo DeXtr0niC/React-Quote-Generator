@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "pretty": "prettier --write \"./**/*.{js, jsx, json}\"",
     "build": "react-scripts build",
     "test": "standard && react-scripts test",
     "eject": "react-scripts eject"
