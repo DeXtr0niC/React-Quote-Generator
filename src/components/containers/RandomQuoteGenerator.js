@@ -51,7 +51,6 @@ const RandomQuoteGenerator = () => {
 
       let randomNumber = Math.floor(Math.random() * quotes.length - 1)
       setCurrentIdx(randomNumber)
-      setCurrentQuote(quotes[randomNumber])
       setIsLoading(false)
     }
     fetchQuotes()
@@ -67,9 +66,12 @@ const RandomQuoteGenerator = () => {
     setIsLoading(true)
     let randomIndex = getRandomIndex()
     setCurrentIdx(randomIndex)
-    setCurrentQuote(quoteList[randomIndex])
     setIsLoading(false)
   }
+
+  useEffect(() => {
+    setCurrentQuote(quoteList[currentIdx])
+  }, [currentIdx, quoteList])
 
   return (
     <StyledRandomQuoteGenerator>
