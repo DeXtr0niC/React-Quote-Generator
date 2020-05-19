@@ -36,23 +36,3 @@ const QuoteBox = ({ currentQuote, newQuoteHandler, isLoading }) => {
 }
 
 export default QuoteBox
-
-// function QuoteWrapper(props) {
-//   if(props.isLoading) {
-//     return (
-//       <div id={'quote-box'}>
-//         Loading...
-//       </div>
-//     )
-//   }
-//   return (
-//     <div id={'quote-box'}>
-//       <Quote>{props.quote}</Quote>
-//       <Author>{props.author}</Author>
-//       <ButtonBar>
-//         <TwitterButton currentQuote={[props.quote, props.author]}/>
-//         <NewQuoteButton clickHandler={props.newQuoteHandler}/>
-//       </ButtonBar>
-//     </div>
-//   )
-// }

@@ -63,17 +63,3 @@ export const NewQuoteButton = ({ clickHandler }) => {
 }
 
 export default Button
-
-// function TwitterButton(props) {
-// let uri = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + props.currentQuote[0] + '" ' + props.currentQuote[1])
-// return (
-//   <IconButton id={'twitter-button'} title={'Tweet this quote!'}>
-//     <a id={'tweet-quote'} target={'_blank'}  rel="noopener noreferrer" href={uri}> <i className="fab fa-twitter"></i></a>
-//   </IconButton>
-// )
-// }
-
-// function NewQuoteButton (props) {
-// return
-// <button id={'new-quote'} title='Get a new quote!' onClick={props.clickHandler} className={'button'}>New Quote</button>
-// }

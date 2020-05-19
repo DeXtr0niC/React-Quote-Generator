@@ -19,5 +19,3 @@ const Buttonbar = (props) => {
 }
 
 export default Buttonbar
-
-// let ButtonBar = (props) => <div id={'buttonbar'}>{props.children}</div>

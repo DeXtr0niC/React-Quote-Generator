@@ -23,12 +23,3 @@ const Author = ({ author }) => {
 }
 
 export default Author
-
-//
-// let Author = (props) => (
-//   <FadingComponent>
-//     <div className={'quote-author'}>
-//       - <span id={'author'}>{props.children}</span>
-//     </div>
-//   </FadingComponent>
-// )

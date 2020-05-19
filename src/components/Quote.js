@@ -24,10 +24,3 @@ const Quote = ({ quote }) => (
 )
 
 export default Quote
-// const Quote  = (props) => (
-//     <div}>
-//       <i className="fas fa-quote-left"></i>
-//       <span id={'text'}>{props.children}</span>
-//       <i className="fas fa-quote-right"></i>
-//     </div>
-// )
